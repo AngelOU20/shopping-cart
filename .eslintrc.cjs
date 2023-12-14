@@ -1,15 +1,35 @@
 module.exports = {
-  env: { browser: true, es2020: true },
+  env: {
+    browser: true,
+    es2021: true,
+  },
   extends: [
-    'eslint:recommended',
+    'standard', 
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
   ],
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': 'warn',
+  overrides: [
+    {
+      env: {
+        node: true,
+      },
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-}
+  plugins: ['react'],
+  rules: {
+    'import/no-absolute-path': 'off',
+    'semi': 'off',
+    'comma-dangle': 'off',
+    'space-before-function-paren': 'off',
+    'multiline-ternary': 'off'
+  },
+  ignorePatterns: ['.eslintrc.cjs', 'vite.config.js'],
+};
