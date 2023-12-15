@@ -3,7 +3,7 @@ import { Products, Header, Footer, Cart } from './components';
 import { products as initialProducts } from './mocks/products.json';
 import { useFilters } from './hooks';
 import { IS_DEVELOPMENT } from './config/config';
-import { CartProvider } from './context/Cart';
+import { CartProvider } from './context';
 
 function App() {
   const [products] = useState(initialProducts);
